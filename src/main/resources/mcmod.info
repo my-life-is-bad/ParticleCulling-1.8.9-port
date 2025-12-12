@@ -1,0 +1,16 @@
+[
+{
+  "modid": "particleculling",
+  "name": "Particle Culling",
+  "description": "Culls particles outside the player's view frustum. \n\u00A7aPorted to 1.8.9 by my_life_is_bad",
+  "version": "${version}",
+  "mcversion": "1.8.9",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["bl4ckscor3", "my_life_is_bad"],
+  "credits": "",
+  "logoFile": "logo.png",
+  "screenshots": [],
+  "dependencies": [configurationsbackport]
+}
+]

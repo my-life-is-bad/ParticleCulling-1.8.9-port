@@ -1,0 +1,73 @@
+buildscript {
+    repositories {
+        jcenter()
+        maven { url = 'https://files.minecraftforge.net/maven' }
+        maven { url = 'https://repo.spongepowered.org/maven' }
+    }
+    dependencies {
+        classpath 'net.minecraftforge.gradle:ForgeGradle:2.1-SNAPSHOT'
+        classpath 'org.spongepowered:mixingradle:0.6-SNAPSHOT'
+    }
+}
+
+apply plugin: 'net.minecraftforge.gradle.forge'
+apply plugin: 'org.spongepowered.mixin'
+
+version = '1.8.9-v1.4.3' //Make sure the version in the @Mod annotation is also changed!
+group = 'bl4ckscor3.mod.particleculling'
+archivesBaseName = 'particleculling'
+
+sourceCompatibility = targetCompatibility = '1.8'
+compileJava {
+    sourceCompatibility = targetCompatibility = '1.8'
+}
+
+minecraft {
+    version = '1.8.9-11.15.1.2318-1.8.9'
+    runDir = 'run/client'
+    coreMod = 'bl4ckscor3.mod.particleculling.ParticleCullingLoadingPlugin'
+    mappings = 'stable_22'
+}
+
+jar.manifest.attributes(
+        'FMLCorePluginContainsFMLMod': true,
+        'FMLCorePlugin': 'bl4ckscor3.mod.particleculling.ParticleCullingLoadingPlugin',
+        'ForceLoadAsMod': true,
+        'TweakClass': 'org.spongepowered.asm.launch.MixinTweaker',
+        'FMLAT': 'particleculling_at.cfg'
+)
+
+repositories {
+    maven { url 'https://repo.spongepowered.org/maven/' }
+    maven { url = 'https://www.cursemaven.com' }
+    ivy {
+    url 'https://github.com/'
+
+    layout('pattern') {
+        artifact '[organisation]/[module]/releases/download/v[revision]/[module]-[revision].[ext]'
+        }
+    }
+}
+
+dependencies {
+    compile 'my-life-is-bad:ConfigurationsBackport:1.8.9-1.0@jar'
+}
+
+mixin {
+    add sourceSets.main, 'mixins.particleculling.refmap.json'
+}
+
+processResources {
+    inputs.property 'version', project.version
+    inputs.property 'mcversion', project.minecraft.version
+
+    from(sourceSets.main.resources.srcDirs) {
+        include 'mcmod.info'
+
+        expand 'version':project.version, 'mcversion':project.minecraft.version
+    }
+
+    from(sourceSets.main.resources.srcDirs) {
+        exclude 'mcmod.info'
+    }
+}
