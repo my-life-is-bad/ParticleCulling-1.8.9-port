@@ -7,11 +7,11 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.common.config.Config;
-import net.minecraftforge.common.config.Config.Comment;
-import net.minecraftforge.common.config.Config.Ignore;
-import net.minecraftforge.common.config.Config.RangeInt;
-import net.minecraftforge.common.config.ConfigManager;
+import my_life_is_bad.configurationsbackport.common.config.Config;
+import my_life_is_bad.configurationsbackport.common.config.Config.Comment;
+import my_life_is_bad.configurationsbackport.common.config.Config.Ignore;
+import my_life_is_bad.configurationsbackport.common.config.Config.RangeInt;
+import my_life_is_bad.configurationsbackport.common.config.ConfigManager;
 import net.minecraftforge.fml.client.event.ConfigChangedEvent.OnConfigChangedEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
@@ -20,7 +20,7 @@ import net.minecraftforge.fml.common.event.FMLLoadCompleteEvent;
 import net.minecraftforge.fml.common.event.FMLConstructionEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
-@Mod(modid = ParticleCulling.MODID, name = "Particle Culling", version = "v1.4.3", clientSideOnly = true, dependencies = "required-after:configurationsbackport@[1.0,)")
+@Mod(modid = ParticleCulling.MODID, name = "Particle Culling", version = "v1.4.3.1", clientSideOnly = true, dependencies = "required-after:configurationsbackport@[1.1,)")
 public class ParticleCulling {
 	public static final String MODID = "particleculling";
 	public static final Logger LOGGER = LogManager.getLogger(MODID);

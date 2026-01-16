@@ -13,7 +13,7 @@ buildscript {
 apply plugin: 'net.minecraftforge.gradle.forge'
 apply plugin: 'org.spongepowered.mixin'
 
-version = '1.8.9-v1.4.3' //Make sure the version in the @Mod annotation is also changed!
+version = '1.8.9-v1.4.3.1' //Make sure the version in the @Mod annotation is also changed!
 group = 'bl4ckscor3.mod.particleculling'
 archivesBaseName = 'particleculling'
 
@@ -50,7 +50,7 @@ repositories {
 }
 
 dependencies {
-    compile 'my-life-is-bad:ConfigurationsBackport:1.8.9-1.0@jar'
+    compile 'my-life-is-bad:ConfigurationsBackport:1.8.9-1.1@jar'
 }
 
 mixin {
